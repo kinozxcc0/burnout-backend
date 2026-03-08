@@ -17,7 +17,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-Base.metadata.create_all(bind=engine)
+# Safe table creation — won't crash if DB is slow to connect
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    print(f"Warning: Could not create tables on startup: {e}")
 
 app.include_router(users.router,            prefix="/api/v1/users",           tags=["Users"])
 app.include_router(logs.router,             prefix="/api/v1/logs",            tags=["Usage Logs"])
