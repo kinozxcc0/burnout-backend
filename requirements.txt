@@ -1,0 +1,16 @@
+fastapi==0.115.0
+uvicorn[standard]
+sqlalchemy==2.0.36
+psycopg2-binary
+pydantic==2.9
+python-dotenv
+python-multipart
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+torch --index-url https://download.pytorch.org/whl/cpu
+torchvision --index-url https://download.pytorch.org/whl/cpu
+torchaudio --index-url https://download.pytorch.org/whl/cpu
+scikit-learn
+pandas
+numpy
+alembic
